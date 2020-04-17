@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banzai
+  labels:
+    app: banzai
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: banzai
+  template:
+    metadata:
+      labels:
+        app: banzai
+    spec:
+      containers:
+      - name: thing
+        image: beartuchman/banzai:n
+        ports:
+        - containerPort: 80
